@@ -10,7 +10,7 @@ export default function Landing() {
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-2">
             <GraduationCap className="text-blue-600 text-2xl" />
-            <span className="text-xl font-bold text-gray-800">UniConnect</span>
+            <span className="text-xl font-bold text-gray-800">APU Bridge</span>
           </div>
           <div className="flex space-x-4">
             <Button variant="ghost" onClick={() => window.location.href = '/api/login'}>
@@ -28,10 +28,10 @@ export default function Landing() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <h1 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
-              Connect with your university community
+              Connect with your APU community
             </h1>
             <p className="text-xl text-gray-600 mb-8">
-              Join your fellow students, alumni, and faculty in building professional relationships 
+              Join your fellow APU students, alumni, and faculty in building professional relationships 
               that last beyond graduation.
             </p>
             <Button 
@@ -63,7 +63,7 @@ export default function Landing() {
               <Users className="h-12 w-12 text-blue-600 mx-auto mb-4" />
               <h3 className="font-semibold text-gray-800 mb-2">Build Connections</h3>
               <p className="text-gray-600 text-sm">
-                Connect with students, alumni, and faculty from your university
+                Connect with students, alumni, and faculty from APU
               </p>
             </CardContent>
           </Card>
@@ -107,7 +107,7 @@ export default function Landing() {
             Ready to expand your professional network?
           </h2>
           <p className="text-xl mb-8 text-blue-100">
-            Join thousands of students and alumni building their careers together
+            Join thousands of APU students and alumni building their careers together
           </p>
           <Button 
             size="lg" 
@@ -115,7 +115,7 @@ export default function Landing() {
             className="text-lg px-8 py-6"
             onClick={() => window.location.href = '/api/login'}
           >
-            Join UniConnect Today
+            Join APU Bridge Today
           </Button>
         </div>
       </div>

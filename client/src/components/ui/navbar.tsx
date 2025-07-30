@@ -49,7 +49,7 @@ export default function Navbar() {
               <div className="w-8 h-8 bg-blue-600 rounded flex items-center justify-center">
                 <GraduationCap className="text-white text-sm" />
               </div>
-              <span className="text-xl font-bold text-blue-800">UniConnect</span>
+              <span className="text-xl font-bold text-blue-800">APU Bridge</span>
             </Link>
             
             <div className="hidden md:block relative">

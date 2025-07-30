@@ -1,8 +1,8 @@
-# UniConnect - University Social Network Platform
+# APU Bridge - University Social Network Platform
 
 ## Overview
 
-UniConnect is a comprehensive university social networking platform that connects students, alumni, faculty, and staff within academic institutions. The application provides a LinkedIn-like experience tailored for university communities, featuring user profiles, social feeds, networking capabilities, job postings, and real-time messaging.
+APU Bridge is a comprehensive university social networking platform that connects students, alumni, faculty, and staff within APU. The application provides a LinkedIn-like experience tailored for the APU community, featuring user profiles, social feeds, networking capabilities, job postings, and real-time messaging.
 
 ## User Preferences
 
