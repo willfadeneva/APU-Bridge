@@ -109,7 +109,7 @@ export default function Profile() {
       
       <div className="max-w-4xl mx-auto px-6 py-6">
         {/* Profile Header */}
-        <Card className="overflow-hidden mb-6">
+        <Card className="overflow-visible mb-6">
           {/* Cover Photo */}
           <div 
             className="h-48 bg-gradient-to-r from-blue-500 to-blue-600 relative group cursor-pointer"
@@ -137,15 +137,15 @@ export default function Profile() {
             </div>
           </div>
 
-          <CardContent className="px-8 pb-8">
+          <CardContent className="px-8 pb-8 pt-8">
             {/* Profile Info */}
-            <div className="flex flex-col md:flex-row md:items-end md:justify-between -mt-16 mb-6">
+            <div className="flex flex-col md:flex-row md:items-end md:justify-between -mt-20 mb-6">
               <div className="flex flex-col md:flex-row md:items-end">
-                <div className="relative group cursor-pointer mb-4 md:mb-0 md:mr-6">
+                <div className="relative group cursor-pointer mb-4 md:mb-0 md:mr-6 z-10">
                   <img 
                     src={user.profileImageUrl || `https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face`}
                     alt="Profile" 
-                    className="w-32 h-32 rounded-full border-4 border-white object-cover"
+                    className="w-32 h-32 rounded-full border-4 border-white object-cover shadow-lg bg-white"
                     onClick={() => {
                       toast({
                         title: "Photo upload",
@@ -157,7 +157,7 @@ export default function Profile() {
                     <Camera className="h-6 w-6 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
                   </div>
                 </div>
-                <div>
+                <div className="relative z-10 bg-white bg-opacity-95 rounded-lg p-4 md:bg-transparent md:p-0">
                   <div className="flex items-center space-x-3 mb-2">
                     {isEditing ? (
                       <div className="flex space-x-2">
