@@ -80,14 +80,23 @@ REPLIT_CLIENT_SECRET=your_replit_secret
 SESSION_SECRET=your_session_secret
 PORT=3000
 
-📂 Project Structure
 apu-bridge/
-├── client/            # Frontend code
-├── server/            # Backend code
-├── shared/            # Shared types and utilities
-├── .env.example       # Environment template
-├── package.json       # Project dependencies
-└── README.md          # This file
+│
+├── client/            # React frontend application
+│   ├── public/        # Static assets
+│   └── src/           # Application source code
+│
+├── server/            # Node.js backend API
+│   ├── controllers/   # Route handlers
+│   └── middleware/    # Authentication layers
+│
+├── shared/            # Shared utilities and types
+│   ├── types/         # TypeScript interfaces
+│   └── lib/           # Common libraries
+│
+├── .env.example       # Environment configuration template
+├── package.json       # Project dependencies and scripts
+└── README.md          # Project documentation
 
 🌍 Deployment
 Free Hosting Options:
