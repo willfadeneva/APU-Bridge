@@ -23,9 +23,9 @@ export default function ProfileSidebar({ user }: ProfileSidebarProps) {
   return (
     <div className="space-y-4">
       {/* Main Profile Card */}
-      <Card className="overflow-visible bg-white">
+      <Card className="overflow-hidden bg-white">
         {/* Cover Photo */}
-        <div className="h-20 university-gradient relative group cursor-pointer">
+        <div className="h-16 university-gradient relative group cursor-pointer">
           <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-200 flex items-center justify-center">
             <span className="text-white text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200">
               Change Cover
@@ -34,13 +34,14 @@ export default function ProfileSidebar({ user }: ProfileSidebarProps) {
         </div>
         
         {/* Profile Info */}
-        <CardContent className="px-4 pb-4 pt-4 relative">
-          <div className="relative -mt-16 z-20 mb-4">
+        <CardContent className="px-4 pb-4 pt-6 bg-white relative">
+          {/* Profile Image - positioned above the content area */}
+          <div className="absolute -top-8 left-4 z-30">
             <div className="relative group cursor-pointer inline-block">
               <img 
                 src={user.profileImageUrl || `https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face`}
                 alt={`${user.firstName} ${user.lastName}`} 
-                className="w-20 h-20 rounded-full border-4 border-white object-cover bg-white shadow-lg"
+                className="w-16 h-16 rounded-full border-4 border-white object-cover bg-white shadow-lg"
               />
               <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-200 rounded-full flex items-center justify-center">
                 <span className="text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-200">
@@ -50,7 +51,8 @@ export default function ProfileSidebar({ user }: ProfileSidebarProps) {
             </div>
           </div>
           
-          <div className="relative z-10">
+          {/* Content with top margin to avoid profile image */}
+          <div className="mt-10">
             <div className="flex flex-col space-y-2 mb-3">
               <div className="flex items-center space-x-2">
                 <h3 className="font-semibold text-gray-800 text-base">
@@ -62,6 +64,7 @@ export default function ProfileSidebar({ user }: ProfileSidebarProps) {
               </div>
               <p className="text-sm text-gray-600">{user.title || 'University Student'}</p>
             </div>
+            
             <div className="flex flex-col space-y-1 text-xs text-gray-500 mb-4">
               {user.university && (
                 <div className="flex items-center">
@@ -82,40 +85,40 @@ export default function ProfileSidebar({ user }: ProfileSidebarProps) {
                 </div>
               )}
             </div>
-          </div>
 
-          {/* Stats */}
-          <div className="pt-3 border-t border-gray-100">
-            <div className="flex justify-between text-xs text-gray-600 mb-2">
-              <div className="flex items-center">
-                <Eye className="h-3 w-3 mr-1" />
-                <span>Profile views</span>
+            {/* Stats */}
+            <div className="pt-3 border-t border-gray-100">
+              <div className="flex justify-between text-xs text-gray-600 mb-2">
+                <div className="flex items-center">
+                  <Eye className="h-3 w-3 mr-1" />
+                  <span>Profile views</span>
+                </div>
+                <span className="font-medium text-blue-600">23</span>
               </div>
-              <span className="font-medium text-blue-600">23</span>
-            </div>
-            <div className="flex justify-between text-xs text-gray-600">
-              <div className="flex items-center">
-                <Users className="h-3 w-3 mr-1" />
-                <span>Connections</span>
+              <div className="flex justify-between text-xs text-gray-600">
+                <div className="flex items-center">
+                  <Users className="h-3 w-3 mr-1" />
+                  <span>Connections</span>
+                </div>
+                <span className="font-medium text-blue-600">156</span>
               </div>
-              <span className="font-medium text-blue-600">156</span>
             </div>
-          </div>
 
-          <div className="flex space-x-2 mt-4">
-            <Link href="/profile" className="flex-1">
-              <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white text-sm">
-                View Profile
+            <div className="flex space-x-2 mt-4">
+              <Link href="/profile" className="flex-1">
+                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white text-sm">
+                  View Profile
+                </Button>
+              </Link>
+              <Button 
+                variant="outline" 
+                size="sm"
+                className="px-3 text-sm border-blue-600 text-blue-600 hover:bg-blue-50"
+                onClick={() => window.location.href = '/profile?edit=true'}
+              >
+                Edit
               </Button>
-            </Link>
-            <Button 
-              variant="outline" 
-              size="sm"
-              className="px-3 text-sm border-blue-600 text-blue-600 hover:bg-blue-50"
-              onClick={() => window.location.href = '/profile?edit=true'}
-            >
-              Edit
-            </Button>
+            </div>
           </div>
         </CardContent>
       </Card>
