@@ -14,6 +14,7 @@
 📘 APU Bridge - University Social Network Platform
 APU Bridge is a LinkedIn-style platform designed for APU’s students, alumni, faculty, and staff to network, share opportunities, and engage in meaningful interactions.
 
+
 🚀 Features
 👤 Role-based user profiles (student, alumni, faculty, admin)
 
@@ -27,6 +28,7 @@ APU Bridge is a LinkedIn-style platform designed for APU’s students, alumni, f
 
 🎨 Modern UI with dark/light mode
 
+
 🛠️ Tech Stack
 Layer	Stack
 Frontend	React 18, TypeScript, Vite, Tailwind CSS
@@ -39,63 +41,47 @@ Auth	Replit OIDC, Express Session
 Real-Time	WebSockets
 Dev Environment	Monorepo, HMR, Proxy, Vite
 
+
 🧩 Core Modules
 🔐 Authentication
 Role-based access
-
 OIDC with Replit Auth
-
 Session persistence with PostgreSQL
+
 
 👥 Social Networking
 Profile customization
-
 Search & discover users
-
 Rich content feed
-
 Real-time chat
 
 💼 Job Platform
 Job posts with filters
-
 Applications with cover letters
-
 Internship/full-time support
+
 
 📦 Development
 Prerequisites
 Node.js (v18+)
-
 PostgreSQL (v13+)
-
 Git
-
 Vite (dev build)
 
 Install & Run
-bash
-Copy
-Edit
 git clone https://github.com/YOUR_USERNAME/apu-bridge.git
 cd apu-bridge
 npm install
 npm run dev
+
 🌐 Deployment Strategy
 Static assets served from Express
-
 Drizzle for schema migrations
-
 Neon serverless PostgreSQL
-
 CDN-ready frontend via Vite
-
 WebSocket server can be horizontally scaled
 
 📂 Folder Structure
-bash
-Copy
-Edit
 apu-bridge/
 ├── client/           # Frontend
 │   ├── src/
@@ -105,5 +91,7 @@ apu-bridge/
 │   ├── db/
 │   └── index.ts
 └── README.md
+
+
 ✅ Status
 🚧 Under active development.
