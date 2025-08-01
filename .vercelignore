@@ -1,0 +1,16 @@
+node_modules
+.git
+.env
+.env.local
+*.log
+dist
+.cache
+.parcel-cache
+.DS_Store
+.vscode
+.replit
+replit.nix
+.upm
+server/
+drizzle.config.ts
+.local/

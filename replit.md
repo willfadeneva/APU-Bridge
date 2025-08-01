@@ -8,6 +8,16 @@ APU Bridge is a comprehensive university social networking platform that connect
 
 Preferred communication style: Simple, everyday language.
 
+## Recent Changes (2025-01-02)
+
+**Vercel Migration Preparation:**
+- Created Vercel-compatible API structure under `/api/` directory
+- Implemented serverless function architecture for all endpoints
+- Added comprehensive migration guide with database and storage options
+- Set up mock data for demonstration purposes
+- Configured authentication middleware for serverless environment
+- Updated build process for Vercel deployment
+
 ## System Architecture
 
 The application follows a modern full-stack architecture with clear separation of concerns:

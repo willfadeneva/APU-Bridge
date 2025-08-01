@@ -314,12 +314,27 @@ export class DatabaseStorage implements IStorage {
     const userConnections = await db
       .select({
         connection: connections,
-        requester: users,
-        addressee: users,
+        requester: {
+          id: users.id,
+          email: users.email,
+          firstName: users.firstName,
+          lastName: users.lastName,
+          profileImageUrl: users.profileImageUrl,
+          role: users.role,
+          title: users.title,
+          university: users.university,
+          graduationYear: users.graduationYear,
+          major: users.major,
+          about: users.about,
+          skills: users.skills,
+          location: users.location,
+          isActive: users.isActive,
+          createdAt: users.createdAt,
+          updatedAt: users.updatedAt,
+        }
       })
       .from(connections)
       .leftJoin(users, eq(connections.requesterId, users.id))
-      .leftJoin(users, eq(connections.addresseeId, users.id))
       .where(
         and(
           or(eq(connections.requesterId, userId), eq(connections.addresseeId, userId)),
@@ -327,25 +342,49 @@ export class DatabaseStorage implements IStorage {
         )
       );
 
+    // Get addressee information in a separate query to avoid alias conflicts
+    const addresseeData = await db
+      .select()
+      .from(users)
+      .where(sql`${users.id} IN (${sql.join(userConnections.map(c => c.connection.addresseeId), sql`, `)})`);
+
+    const addresseeMap = new Map(addresseeData.map(user => [user.id, user]));
+
     return userConnections
-      .filter(({ requester, addressee }) => requester && addressee)
-      .map(({ connection, requester, addressee }) => ({
+      .filter(({ requester }) => requester && requester.id)
+      .map(({ connection, requester }) => ({
         ...connection,
         requester: requester!,
-        addressee: addressee!,
-      }));
+        addressee: addresseeMap.get(connection.addresseeId)!,
+      }))
+      .filter(item => item.addressee);
   }
 
   async getPendingConnectionRequests(userId: string): Promise<ConnectionWithUsers[]> {
     const pendingRequests = await db
       .select({
         connection: connections,
-        requester: users,
-        addressee: users,
+        requester: {
+          id: users.id,
+          email: users.email,
+          firstName: users.firstName,
+          lastName: users.lastName,
+          profileImageUrl: users.profileImageUrl,
+          role: users.role,
+          title: users.title,
+          university: users.university,
+          graduationYear: users.graduationYear,
+          major: users.major,
+          about: users.about,
+          skills: users.skills,
+          location: users.location,
+          isActive: users.isActive,
+          createdAt: users.createdAt,
+          updatedAt: users.updatedAt,
+        }
       })
       .from(connections)
       .leftJoin(users, eq(connections.requesterId, users.id))
-      .leftJoin(users, eq(connections.addresseeId, users.id))
       .where(
         and(
           eq(connections.addresseeId, userId),
@@ -353,9 +392,12 @@ export class DatabaseStorage implements IStorage {
         )
       );
 
+    // Get addressee (current user) info
+    const addressee = await this.getUser(userId);
+
     return pendingRequests
-      .filter(({ requester, addressee }) => requester && addressee)
-      .map(({ connection, requester, addressee }) => ({
+      .filter(({ requester }) => requester && requester.id && addressee)
+      .map(({ connection, requester }) => ({
         ...connection,
         requester: requester!,
         addressee: addressee!,
