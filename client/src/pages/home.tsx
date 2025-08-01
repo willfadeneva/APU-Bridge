@@ -78,16 +78,16 @@ export default function Home() {
     return (
       <div className="min-h-screen bg-gray-50">
         <Navbar />
-        <div className="max-w-6xl mx-auto px-6 py-6">
-          <div className="grid lg:grid-cols-4 gap-6">
-            <div className="lg:col-span-1">
+        <div className="max-w-6xl mx-auto px-4 py-6">
+          <div className="grid lg:grid-cols-4 gap-4 lg:gap-6">
+            <div className="lg:col-span-1 order-2 lg:order-1">
               <Skeleton className="h-64 w-full" />
             </div>
-            <div className="lg:col-span-2">
+            <div className="lg:col-span-2 order-1 lg:order-2 min-w-0">
               <Skeleton className="h-32 w-full mb-4" />
               <Skeleton className="h-48 w-full" />
             </div>
-            <div className="lg:col-span-1">
+            <div className="lg:col-span-1 order-3 min-w-0">
               <Skeleton className="h-64 w-full" />
             </div>
           </div>
@@ -102,16 +102,18 @@ export default function Home() {
     <div className="min-h-screen bg-gray-50">
       <Navbar />
       
-      <div className="max-w-6xl mx-auto px-6 py-6">
-        <div className="grid lg:grid-cols-4 gap-6">
+      <div className="max-w-6xl mx-auto px-4 py-6">
+        <div className="grid lg:grid-cols-4 gap-4 lg:gap-6">
           {/* Left Sidebar */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-1 order-2 lg:order-1">
             <ProfileSidebar user={user} />
           </div>
 
           {/* Main Feed */}
-          <div className="lg:col-span-2">
-            <CreatePost />
+          <div className="lg:col-span-2 order-1 lg:order-2 min-w-0">
+            <div className="max-w-full">
+              <CreatePost />
+            </div>
             
             <div className="space-y-4">
               {postsLoading ? (
@@ -144,7 +146,7 @@ export default function Home() {
           </div>
 
           {/* Right Sidebar */}
-          <div className="lg:col-span-1 space-y-4">
+          <div className="lg:col-span-1 order-3 space-y-4 min-w-0">
             {/* Job Recommendations */}
             <Card>
               <CardContent className="p-4">

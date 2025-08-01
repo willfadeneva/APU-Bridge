@@ -64,47 +64,47 @@ export default function CreatePost() {
   if (!user) return null;
 
   return (
-    <Card className="mb-6">
-      <CardContent className="p-6">
+    <Card className="mb-6 w-full">
+      <CardContent className="p-4 lg:p-6">
         <div className="flex items-start space-x-3">
           <img 
             src={user.profileImageUrl || `https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face`}
             alt="Your profile" 
-            className="w-12 h-12 rounded-full object-cover"
+            className="w-10 h-10 lg:w-12 lg:h-12 rounded-full object-cover flex-shrink-0"
           />
-          <div className="flex-1">
+          <div className="flex-1 min-w-0">
             <Textarea
               placeholder="Share an update with your network..."
               value={content}
               onChange={(e) => setContent(e.target.value)}
               onFocus={() => setIsExpanded(true)}
-              className="resize-none border-0 focus:ring-0 focus:outline-none p-0 text-base placeholder:text-gray-500"
+              className="resize-none border-0 focus:ring-0 focus:outline-none p-0 text-sm lg:text-base placeholder:text-gray-500 w-full"
               rows={isExpanded ? 4 : 1}
             />
             
             {isExpanded && (
               <>
-                <div className="flex items-center justify-between mt-4">
-                  <div className="flex items-center space-x-4">
-                    <Button variant="ghost" size="sm" className="text-gray-600 hover:text-blue-600">
-                      <Image className="h-4 w-4 mr-1" />
-                      <span className="text-sm">Photo</span>
+                <div className="mt-4 space-y-3">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <Button variant="ghost" size="sm" className="text-gray-600 hover:text-blue-600 flex-shrink-0 text-xs lg:text-sm">
+                      <Image className="h-3 w-3 lg:h-4 lg:w-4 mr-1" />
+                      <span>Photo</span>
                     </Button>
-                    <Button variant="ghost" size="sm" className="text-gray-600 hover:text-blue-600">
-                      <Video className="h-4 w-4 mr-1" />
-                      <span className="text-sm">Video</span>
+                    <Button variant="ghost" size="sm" className="text-gray-600 hover:text-blue-600 flex-shrink-0 text-xs lg:text-sm">
+                      <Video className="h-3 w-3 lg:h-4 lg:w-4 mr-1" />
+                      <span>Video</span>
                     </Button>
-                    <Button variant="ghost" size="sm" className="text-gray-600 hover:text-blue-600">
-                      <FileText className="h-4 w-4 mr-1" />
-                      <span className="text-sm">Document</span>
+                    <Button variant="ghost" size="sm" className="text-gray-600 hover:text-blue-600 flex-shrink-0 text-xs lg:text-sm">
+                      <FileText className="h-3 w-3 lg:h-4 lg:w-4 mr-1" />
+                      <span>Document</span>
                     </Button>
-                    <Button variant="ghost" size="sm" className="text-gray-600 hover:text-blue-600">
-                      <Link className="h-4 w-4 mr-1" />
-                      <span className="text-sm">Link</span>
+                    <Button variant="ghost" size="sm" className="text-gray-600 hover:text-blue-600 flex-shrink-0 text-xs lg:text-sm">
+                      <Link className="h-3 w-3 lg:h-4 lg:w-4 mr-1" />
+                      <span>Link</span>
                     </Button>
                   </div>
                   
-                  <div className="flex space-x-2">
+                  <div className="flex flex-col sm:flex-row justify-end gap-2">
                     <Button 
                       variant="outline" 
                       size="sm"
@@ -112,6 +112,7 @@ export default function CreatePost() {
                         setContent("");
                         setIsExpanded(false);
                       }}
+                      className="flex-shrink-0 text-xs lg:text-sm"
                     >
                       Cancel
                     </Button>
@@ -119,7 +120,7 @@ export default function CreatePost() {
                       size="sm"
                       onClick={handleSubmit}
                       disabled={!content.trim() || createPostMutation.isPending}
-                      className="bg-blue-600 hover:bg-blue-700 text-white"
+                      className="bg-blue-600 hover:bg-blue-700 text-white flex-shrink-0 text-xs lg:text-sm"
                     >
                       {createPostMutation.isPending ? 'Posting...' : 'Post'}
                     </Button>
