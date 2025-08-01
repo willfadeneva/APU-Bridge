@@ -3,7 +3,6 @@ import { Link, useLocation } from "wouter";
 import { useAuth } from "@/hooks/useAuth";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { 
   DropdownMenu, 
   DropdownMenuContent, 
@@ -11,6 +10,7 @@ import {
   DropdownMenuTrigger,
   DropdownMenuSeparator 
 } from "@/components/ui/dropdown-menu";
+import NotificationsDropdown from "@/components/ui/notifications-dropdown";
 import { 
   GraduationCap, 
   Search, 
@@ -18,7 +18,6 @@ import {
   Users, 
   Briefcase, 
   MessageCircle, 
-  Bell, 
   ChevronDown,
   User,
   Settings,
@@ -79,13 +78,7 @@ export default function Navbar() {
               </Link>
             ))}
             
-            <button className="flex flex-col items-center text-gray-600 hover:text-blue-600 transition-colors duration-200 relative">
-              <Bell className="text-lg" />
-              <span className="text-xs mt-1">Notifications</span>
-              <Badge className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center p-0">
-                3
-              </Badge>
-            </button>
+            <NotificationsDropdown />
           </div>
 
           {/* User Profile Dropdown */}

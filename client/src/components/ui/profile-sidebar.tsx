@@ -25,15 +25,17 @@ export default function ProfileSidebar({ user }: ProfileSidebarProps) {
       {/* Main Profile Card */}
       <Card className="overflow-hidden">
         {/* Cover Photo */}
-        <div className="h-16 university-gradient"></div>
+        <div className="h-20 university-gradient"></div>
         
         {/* Profile Info */}
-        <CardContent className="px-4 pb-4 -mt-8 relative">
-          <img 
-            src={user.profileImageUrl || `https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face`}
-            alt={`${user.firstName} ${user.lastName}`} 
-            className="w-16 h-16 rounded-full border-4 border-white object-cover"
-          />
+        <CardContent className="px-4 pb-4 relative">
+          <div className="relative -mt-10 z-10">
+            <img 
+              src={user.profileImageUrl || `https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face`}
+              alt={`${user.firstName} ${user.lastName}`} 
+              className="w-16 h-16 rounded-full border-4 border-white object-cover bg-white shadow-md"
+            />
+          </div>
           
           <div className="mt-3">
             <div className="flex items-center space-x-2 mb-1">
@@ -85,11 +87,20 @@ export default function ProfileSidebar({ user }: ProfileSidebarProps) {
             </div>
           </div>
 
-          <Link href="/profile">
-            <Button className="w-full mt-4 bg-blue-600 hover:bg-blue-700 text-white">
-              View Profile
+          <div className="flex space-x-2 mt-4">
+            <Link href="/profile" className="flex-1">
+              <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white text-sm">
+                View Profile
+              </Button>
+            </Link>
+            <Button 
+              variant="outline" 
+              size="sm"
+              className="px-3 text-sm border-blue-600 text-blue-600 hover:bg-blue-50"
+            >
+              Edit
             </Button>
-          </Link>
+          </div>
         </CardContent>
       </Card>
 
@@ -107,10 +118,10 @@ export default function ProfileSidebar({ user }: ProfileSidebarProps) {
               <span>Course Registration</span>
             </a>
             <Link href="/connections">
-              <a className="flex items-center text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200">
+              <div className="flex items-center text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200 cursor-pointer">
                 <Users className="h-4 w-4 mr-2" />
                 <span>Study Groups</span>
-              </a>
+              </div>
             </Link>
           </div>
         </CardContent>
