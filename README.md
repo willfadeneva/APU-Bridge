@@ -9,89 +9,106 @@
 ![Authentication](https://img.shields.io/badge/auth-Replit%20OIDC-yellowgreen)
 ![Status](https://img.shields.io/badge/status-Active--Dev-orange)
 
-# APU-Bridge
+APU Bridge - University Social Network Platform
+https://via.placeholder.com/150x50?text=APU+Bridge (Add your logo here)
 
-📘 APU Bridge - University Social Network Platform
-APU Bridge is a LinkedIn-style platform designed for APU’s students, alumni, faculty, and staff to network, share opportunities, and engage in meaningful interactions.
+A LinkedIn-style social network platform for Asia Pacific University (APU) community, connecting students, alumni, faculty, and staff.
 
+🌟 Features
+University Profiles: Tailored profiles with academic details
 
-🚀 Features
-👤 Role-based user profiles (student, alumni, faculty, admin)
+Social Feed: Share posts, like, and comment
 
-📰 Social feed with posts, likes, and comments
+Networking: Connect with peers and alumni
 
-📬 Real-time messaging via WebSockets
+Job Board: Post and apply for opportunities
 
-💼 Job postings and applications
-
-🔒 Secure authentication using Replit OIDC
-
-🎨 Modern UI with dark/light mode
-
+Real-time Chat: Instant messaging system
 
 🛠️ Tech Stack
-Layer	Stack
-Frontend	React 18, TypeScript, Vite, Tailwind CSS
-UI Components	shadcn/ui, Radix UI
-State Mgmt	TanStack Query (React Query)
-Routing	Wouter
-Backend	Node.js, Express.js, TypeScript
-Database	PostgreSQL + Drizzle ORM
-Auth	Replit OIDC, Express Session
-Real-Time	WebSockets
-Dev Environment	Monorepo, HMR, Proxy, Vite
+Frontend:
 
+React + TypeScript
 
-🧩 Core Modules
-🔐 Authentication
-Role-based access
-OIDC with Replit Auth
-Session persistence with PostgreSQL
+Tailwind CSS + shadcn/ui
 
+Vite
 
-👥 Social Networking
-Profile customization
-Search & discover users
-Rich content feed
-Real-time chat
+TanStack Query
 
-💼 Job Platform
-Job posts with filters
-Applications with cover letters
-Internship/full-time support
+Backend:
 
+Node.js + Express
 
-📦 Development
+PostgreSQL (Drizzle ORM)
+
+WebSockets
+
+🚀 Quick Start
 Prerequisites
 Node.js (v18+)
-PostgreSQL (v13+)
-Git
-Vite (dev build)
 
-Install & Run
-git clone https://github.com/YOUR_USERNAME/apu-bridge.git
+PostgreSQL database
+
+Replit account (for auth)
+
+Installation
+# Clone the repository
+git clone https://github.com/your-username/apu-bridge.git
 cd apu-bridge
+
+# Install dependencies
 npm install
+
+# Set up environment variables
+cp .env.example .env
+# Edit .env with your credentials
+
+Running Locally
+# Start development server
 npm run dev
 
-🌐 Deployment Strategy
-Static assets served from Express
-Drizzle for schema migrations
-Neon serverless PostgreSQL
-CDN-ready frontend via Vite
-WebSocket server can be horizontally scaled
+# Build for production
+npm run build
+npm run start
 
-📂 Folder Structure
+🔧 Configuration
+Edit the .env file with your settings:
+DATABASE_URL="postgres://user:pass@localhost:5432/apubridge"
+REPLIT_CLIENT_ID=your_replit_client_id
+REPLIT_CLIENT_SECRET=your_replit_secret
+SESSION_SECRET=your_session_secret
+PORT=3000
+
+📂 Project Structure
 apu-bridge/
-├── client/           # Frontend
-│   ├── src/
-│   └── vite.config.ts
-├── server/           # Backend
-│   ├── routes/
-│   ├── db/
-│   └── index.ts
-└── README.md
+├── client/            # Frontend code
+├── server/            # Backend code
+├── shared/            # Shared types and utilities
+├── .env.example       # Environment template
+├── package.json       # Project dependencies
+└── README.md          # This file
 
+🌍 Deployment
+Free Hosting Options:
+Vercel (Frontend) + Render (Backend)
 
-✅ Status
-🚧 Under active development.
+Railway.app (Fullstack)
+
+Replit (Dev/Testing)
+
+https://vercel.com/button
+
+🤝 Contributing
+Fork the project
+
+Create your feature branch (git checkout -b feature/AmazingFeature)
+
+Commit your changes (git commit -m 'Add some AmazingFeature')
+
+Push to the branch (git push origin feature/AmazingFeature)
+
+Open a Pull Request
+
+📄 License
+Distributed under the MIT License.
