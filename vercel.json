@@ -5,7 +5,7 @@
       "src": "client/package.json",
       "use": "@vercel/static-build@2.0.0",
       "config": {
-        "distDir": "dist",
+        "distDir": "dist/public",
         "runtime": "nodejs18.x"
       }
     },
@@ -13,7 +13,8 @@
       "src": "server/index.ts",
       "use": "@vercel/node@4.2.4",
       "config": {
-        "runtime": "nodejs18.x"
+        "runtime": "nodejs18.x",
+        "includeFiles": ["dist/**"]
       }
     }
   ],
@@ -25,7 +26,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "client/dist/index.html",
+      "dest": "client/dist/public/index.html",
       "continue": true
     }
   ],
