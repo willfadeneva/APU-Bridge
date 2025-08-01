@@ -23,9 +23,9 @@ export default function ProfileSidebar({ user }: ProfileSidebarProps) {
   return (
     <div className="space-y-4">
       {/* Main Profile Card */}
-      <Card className="overflow-visible">
+      <Card className="overflow-visible bg-white">
         {/* Cover Photo */}
-        <div className="h-24 university-gradient relative group cursor-pointer">
+        <div className="h-20 university-gradient relative group cursor-pointer">
           <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-200 flex items-center justify-center">
             <span className="text-white text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200">
               Change Cover
@@ -34,8 +34,8 @@ export default function ProfileSidebar({ user }: ProfileSidebarProps) {
         </div>
         
         {/* Profile Info */}
-        <CardContent className="px-4 pb-4 relative">
-          <div className="relative -mt-12 z-20">
+        <CardContent className="px-4 pb-4 pt-4 relative">
+          <div className="relative -mt-16 z-20 mb-4">
             <div className="relative group cursor-pointer inline-block">
               <img 
                 src={user.profileImageUrl || `https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face`}
@@ -50,17 +50,19 @@ export default function ProfileSidebar({ user }: ProfileSidebarProps) {
             </div>
           </div>
           
-          <div className="mt-4">
-            <div className="flex items-center space-x-2 mb-1">
-              <h3 className="font-semibold text-gray-800">
-                {user.firstName} {user.lastName}
-              </h3>
-              <Badge className={getUserRoleBadge(user.role || 'student')}>
-                {user.role?.charAt(0).toUpperCase() + user.role?.slice(1) || 'Student'}
-              </Badge>
+          <div className="relative z-10">
+            <div className="flex flex-col space-y-2 mb-3">
+              <div className="flex items-center space-x-2">
+                <h3 className="font-semibold text-gray-800 text-base">
+                  {user.firstName} {user.lastName}
+                </h3>
+                <Badge className={getUserRoleBadge(user.role || 'student')}>
+                  {user.role?.charAt(0).toUpperCase() + user.role?.slice(1) || 'Student'}
+                </Badge>
+              </div>
+              <p className="text-sm text-gray-600">{user.title || 'University Student'}</p>
             </div>
-            <p className="text-sm text-gray-600 mb-1">{user.title || 'University Student'}</p>
-            <div className="flex flex-col space-y-1 text-xs text-gray-500">
+            <div className="flex flex-col space-y-1 text-xs text-gray-500 mb-4">
               {user.university && (
                 <div className="flex items-center">
                   <BookOpen className="h-3 w-3 mr-1" />
@@ -83,7 +85,7 @@ export default function ProfileSidebar({ user }: ProfileSidebarProps) {
           </div>
 
           {/* Stats */}
-          <div className="mt-4 pt-3 border-t border-gray-100">
+          <div className="pt-3 border-t border-gray-100">
             <div className="flex justify-between text-xs text-gray-600 mb-2">
               <div className="flex items-center">
                 <Eye className="h-3 w-3 mr-1" />
