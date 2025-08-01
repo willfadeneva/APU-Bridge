@@ -1,123 +1,113 @@
 # APU Bridge - University Social Network Platform
 
-![TypeScript](https://img.shields.io/badge/code-TypeScript-blue.svg)
-![React](https://img.shields.io/badge/frontend-React18-blue)
-![TailwindCSS](https://img.shields.io/badge/styling-TailwindCSS-38bdf8)
-![Backend](https://img.shields.io/badge/backend-Express.js-green)
-![Database](https://img.shields.io/badge/database-PostgreSQL-336791)
-![ORM](https://img.shields.io/badge/ORM-Drizzle%20ORM-lightgrey)
-![Authentication](https://img.shields.io/badge/auth-Replit%20OIDC-yellowgreen)
-![Status](https://img.shields.io/badge/status-Active--Dev-orange)
+[![TypeScript](https://img.shields.io/badge/code-TypeScript-blue)](https://www.typescriptlang.org/)
+[![React 18](https://img.shields.io/badge/frontend-React%2018-61DAFB)](https://reactjs.org/)
+[![TailwindCSS](https://img.shields.io/badge/styling-TailwindCSS-38B2AC)](https://tailwindcss.com/)
+[![Backend](https://img.shields.io/badge/backend-Express.js-green)](https://expressjs.com/)
+[![PostgreSQL](https://img.shields.io/badge/database-PostgreSQL-336791)](https://www.postgresql.org/)
+[![Drizzle ORM](https://img.shields.io/badge/ORM-Drizzle%20ORM-lightgray)](https://orm.drizzle.team/)
+[![OIDC Auth](https://img.shields.io/badge/auth-Replit%20OIDC-yellowgreen)](https://docs.replit.com)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
 
-APU Bridge - University Social Network Platform
-https://via.placeholder.com/150x50?text=APU+Bridge (Add your logo here)
+---
 
-A LinkedIn-style social network platform for Asia Pacific University (APU) community, connecting students, alumni, faculty, and staff.
+## 🧩 Overview
 
-🌟 Features
-University Profiles: Tailored profiles with academic details
+**APU Bridge** is a LinkedIn-style social network tailored for Asia Pacific University (APU), connecting students, alumni, faculty, and staff. It fosters community through user profiles, job boards, real-time messaging, and academic networking.
 
-Social Feed: Share posts, like, and comment
+---
 
-Networking: Connect with peers and alumni
+## 🌟 Features
 
-Job Board: Post and apply for opportunities
+- 👥 **University Profiles** — Role-based student, faculty, alumni profiles  
+- 📰 **Social Feed** — Post, like, comment with real-time updates  
+- 🌐 **Networking** — Connect with peers and alumni  
+- 💼 **Job Board** — Post jobs, apply, and filter by role/type  
+- 💬 **Real-Time Chat** — Instant messaging via WebSockets  
+- 🔐 **Secure Auth** — OIDC-based authentication (Replit)
 
-Real-time Chat: Instant messaging system
+---
 
-🛠️ Tech Stack
-Frontend:
+## 🛠 Tech Stack
 
-React + TypeScript
+### Frontend
+- **React 18 + TypeScript**
+- **Tailwind CSS** (custom APU theme)
+- **shadcn/ui + Radix UI**
+- **TanStack Query**
+- **Vite + Wouter**
 
-Tailwind CSS + shadcn/ui
+### Backend
+- **Node.js + Express**
+- **Drizzle ORM + PostgreSQL**
+- **Replit OIDC Auth**
+- **WebSockets for messaging**
 
-Vite
+---
 
-TanStack Query
+## 🚀 Getting Started
 
-Backend:
+### Prerequisites
+- Node.js v18+
+- PostgreSQL
+- Replit (for auth)
 
-Node.js + Express
+### Installation
 
-PostgreSQL (Drizzle ORM)
-
-WebSockets
-
-🚀 Quick Start
-Prerequisites
-Node.js (v18+)
-
-PostgreSQL database
-
-Replit account (for auth)
-
-Installation
-# Clone the repository
+```bash
 git clone https://github.com/your-username/apu-bridge.git
 cd apu-bridge
-
-# Install dependencies
 npm install
-
-# Set up environment variables
 cp .env.example .env
-# Edit .env with your credentials
-
-Running Locally
-# Start development server
+# Edit .env with your secrets
 npm run dev
 
-# Build for production
-npm run build
-npm run start
 
-🔧 Configuration
-Edit the .env file with your settings:
-DATABASE_URL="postgres://user:pass@localhost:5432/apubridge"
-REPLIT_CLIENT_ID=your_replit_client_id
-REPLIT_CLIENT_SECRET=your_replit_secret
-SESSION_SECRET=your_session_secret
+Example .env
+DATABASE_URL=postgres://user:pass@localhost:5432/apubridge
+REPLIT_CLIENT_ID=your_client_id
+REPLIT_CLIENT_SECRET=your_secret
+SESSION_SECRET=supersecret
 PORT=3000
 
+🧭 Project Structure
 apu-bridge/
-│
-├── client/            # React frontend application
-│   ├── public/        # Static assets
-│   └── src/           # Application source code
-│
-├── server/            # Node.js backend API
-│   ├── controllers/   # Route handlers
-│   └── middleware/    # Authentication layers
-│
-├── shared/            # Shared utilities and types
-│   ├── types/         # TypeScript interfaces
-│   └── lib/           # Common libraries
-│
-├── .env.example       # Environment configuration template
-├── package.json       # Project dependencies and scripts
-└── README.md          # Project documentation
+├── client/           # React frontend
+│   ├── public/
+│   └── src/
+├── server/           # Express backend
+│   ├── controllers/
+│   ├── middleware/
+│   └── routes/
+├── shared/           # Shared types + logic
+├── types/
+├── lib/
+├── .env.example
+├── package.json
+└── README.md
 
 🌍 Deployment
-Free Hosting Options:
-Vercel (Frontend) + Render (Backend)
+Frontend: Vercel
 
-Railway.app (Fullstack)
+Backend: Render or Railway.app
 
-Replit (Dev/Testing)
+Dev/Test: Replit
 
-https://vercel.com/button
+Full-stack deployable on Railway in minutes.
 
 🤝 Contributing
-Fork the project
+Fork the repo
 
-Create your feature branch (git checkout -b feature/AmazingFeature)
+Create a new branch: git checkout -b feature/YourFeature
 
-Commit your changes (git commit -m 'Add some AmazingFeature')
+Commit changes: git commit -m 'Add feature'
 
-Push to the branch (git push origin feature/AmazingFeature)
+Push to branch: git push origin feature/YourFeature
 
-Open a Pull Request
+Open a Pull Request 🎉
 
 📄 License
 Distributed under the MIT License.
+
+
+
