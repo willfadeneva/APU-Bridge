@@ -45,10 +45,10 @@ export default function Navbar() {
           {/* Logo and Search */}
           <div className="flex items-center space-x-4">
             <Link href="/" className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-blue-600 rounded flex items-center justify-center">
+              <div className="w-8 h-8 rounded flex items-center justify-center" style={{backgroundColor: '#aa003e'}}>
                 <GraduationCap className="text-white text-sm" />
               </div>
-              <span className="text-xl font-bold text-blue-800">APU Bridge</span>
+              <span className="text-xl font-bold" style={{color: '#aa003e'}}>APU Bridge</span>
             </Link>
             
             <div className="hidden md:block relative">
@@ -57,7 +57,8 @@ export default function Navbar() {
               </div>
               <Input
                 type="text" 
-                className="w-64 pl-10 pr-4 py-2 bg-gray-50 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-blue-600 focus:border-transparent" 
+                className="w-64 pl-10 pr-4 py-2 bg-gray-50 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:border-transparent"
+                style={{'&:focus': {ringColor: '#aa003e'}}} 
                 placeholder="Search students, alumni, faculty..." 
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
@@ -70,8 +71,8 @@ export default function Navbar() {
             {navItems.map(({ path, icon: Icon, label }) => (
               <Link key={path} href={path}>
                 <button className={`flex flex-col items-center transition-colors duration-200 ${
-                  isActive(path) ? 'text-blue-600' : 'text-gray-600 hover:text-blue-600'
-                }`}>
+                  isActive(path) ? 'text-red-800' : 'text-gray-600 hover:text-red-800'
+                }`} style={isActive(path) ? {color: '#aa003e'} : {}}>
                   <Icon className="text-lg" />
                   <span className="text-xs mt-1">{label}</span>
                 </button>
@@ -88,7 +89,8 @@ export default function Navbar() {
                 <img 
                   src={user?.profileImageUrl || `https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face`}
                   alt="Profile" 
-                  className="w-8 h-8 rounded-full object-cover border-2 border-transparent hover:border-blue-600 transition-colors duration-200"
+                  className="w-8 h-8 rounded-full object-cover border-2 border-transparent hover:border-red-800 transition-colors duration-200"
+                  style={{'&:hover': {borderColor: '#aa003e'}}}
                 />
                 <div className="hidden sm:block text-left">
                   <div className="text-sm font-medium text-gray-800">

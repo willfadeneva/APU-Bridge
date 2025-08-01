@@ -93,27 +93,28 @@ export default function ProfileSidebar({ user }: ProfileSidebarProps) {
                   <Eye className="h-3 w-3 mr-1" />
                   <span>Profile views</span>
                 </div>
-                <span className="font-medium text-blue-600">23</span>
+                <span className="font-medium" style={{color: '#aa003e'}}>23</span>
               </div>
               <div className="flex justify-between text-xs text-gray-600">
                 <div className="flex items-center">
                   <Users className="h-3 w-3 mr-1" />
                   <span>Connections</span>
                 </div>
-                <span className="font-medium text-blue-600">156</span>
+                <span className="font-medium" style={{color: '#aa003e'}}>156</span>
               </div>
             </div>
 
             <div className="flex space-x-2 mt-4">
               <Link href="/profile" className="flex-1">
-                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white text-sm">
+                <Button className="w-full text-white text-sm" style={{backgroundColor: '#aa003e'}} onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#880032'} onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#aa003e'}>
                   View Profile
                 </Button>
               </Link>
               <Button 
                 variant="outline" 
                 size="sm"
-                className="px-3 text-sm border-blue-600 text-blue-600 hover:bg-blue-50"
+                className="px-3 text-sm hover:bg-red-50"
+                style={{borderColor: '#aa003e', color: '#aa003e'}}
                 onClick={() => window.location.href = '/profile?edit=true'}
               >
                 Edit
@@ -128,16 +129,16 @@ export default function ProfileSidebar({ user }: ProfileSidebarProps) {
         <CardContent className="p-4">
           <h4 className="font-semibold text-gray-800 mb-3">Quick Links</h4>
           <div className="space-y-2">
-            <a href="#" className="flex items-center text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200">
+            <a href="#" className="flex items-center text-sm text-gray-600 hover:text-red-800 transition-colors duration-200">
               <Calendar className="h-4 w-4 mr-2" />
               <span>Campus Events</span>
             </a>
-            <a href="#" className="flex items-center text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200">
+            <a href="#" className="flex items-center text-sm text-gray-600 hover:text-red-800 transition-colors duration-200">
               <BookOpen className="h-4 w-4 mr-2" />
               <span>Course Registration</span>
             </a>
             <Link href="/connections">
-              <div className="flex items-center text-sm text-gray-600 hover:text-blue-600 transition-colors duration-200 cursor-pointer">
+              <div className="flex items-center text-sm text-gray-600 hover:text-red-800 transition-colors duration-200 cursor-pointer">
                 <Users className="h-4 w-4 mr-2" />
                 <span>Study Groups</span>
               </div>
