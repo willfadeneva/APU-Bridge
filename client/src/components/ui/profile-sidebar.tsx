@@ -23,21 +23,34 @@ export default function ProfileSidebar({ user }: ProfileSidebarProps) {
   return (
     <div className="space-y-4">
       {/* Main Profile Card */}
-      <Card className="overflow-hidden">
+      <Card className="overflow-visible">
         {/* Cover Photo */}
-        <div className="h-20 university-gradient"></div>
+        <div className="h-24 university-gradient relative group cursor-pointer">
+          <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-200 flex items-center justify-center">
+            <span className="text-white text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+              Change Cover
+            </span>
+          </div>
+        </div>
         
         {/* Profile Info */}
         <CardContent className="px-4 pb-4 relative">
-          <div className="relative -mt-10 z-10">
-            <img 
-              src={user.profileImageUrl || `https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face`}
-              alt={`${user.firstName} ${user.lastName}`} 
-              className="w-16 h-16 rounded-full border-4 border-white object-cover bg-white shadow-md"
-            />
+          <div className="relative -mt-12 z-20">
+            <div className="relative group cursor-pointer inline-block">
+              <img 
+                src={user.profileImageUrl || `https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face`}
+                alt={`${user.firstName} ${user.lastName}`} 
+                className="w-20 h-20 rounded-full border-4 border-white object-cover bg-white shadow-lg"
+              />
+              <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-200 rounded-full flex items-center justify-center">
+                <span className="text-white text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+                  Change
+                </span>
+              </div>
+            </div>
           </div>
           
-          <div className="mt-3">
+          <div className="mt-4">
             <div className="flex items-center space-x-2 mb-1">
               <h3 className="font-semibold text-gray-800">
                 {user.firstName} {user.lastName}
@@ -97,6 +110,7 @@ export default function ProfileSidebar({ user }: ProfileSidebarProps) {
               variant="outline" 
               size="sm"
               className="px-3 text-sm border-blue-600 text-blue-600 hover:bg-blue-50"
+              onClick={() => window.location.href = '/profile?edit=true'}
             >
               Edit
             </Button>

@@ -85,6 +85,16 @@ export default function NotificationsDropdown() {
                     className={`px-4 py-3 hover:bg-gray-50 cursor-pointer transition-colors ${
                       notification.unread ? 'bg-blue-50' : ''
                     }`}
+                    onClick={() => {
+                      // Handle notification click based on type
+                      if (notification.type === 'connection') {
+                        window.location.href = '/connections';
+                      } else if (notification.type === 'job') {
+                        window.location.href = '/jobs';
+                      } else if (notification.type === 'message') {
+                        window.location.href = '/messages';
+                      }
+                    }}
                   >
                     <div className="flex items-start space-x-3">
                       <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center ${
