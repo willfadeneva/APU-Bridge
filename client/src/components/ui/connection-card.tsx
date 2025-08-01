@@ -99,7 +99,10 @@ export default function ConnectionCard({
                 onClick={onConnect}
                 disabled={isConnecting}
                 size="sm"
-                className="flex-1 bg-blue-600 hover:bg-blue-700 text-white"
+                className="flex-1 text-white"
+                style={{backgroundColor: '#aa003e'}}
+                onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#880032'}
+                onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#aa003e'}
               >
                 <UserPlus className="h-4 w-4 mr-1" />
                 {isConnecting ? 'Connecting...' : 'Connect'}

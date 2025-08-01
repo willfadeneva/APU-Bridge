@@ -31,7 +31,7 @@ export default function JobCard({ job, hasApplied, onApply, isApplying }: JobCar
     const typeColors = {
       'internship': 'bg-purple-100 text-purple-800',
       'full-time': 'bg-green-100 text-green-800',
-      'part-time': 'bg-blue-100 text-blue-800',
+      'part-time': 'bg-red-100 text-red-800',
       'contract': 'bg-orange-100 text-orange-800'
     };
     return typeColors[type as keyof typeof typeColors] || 'bg-gray-100 text-gray-800';
@@ -48,7 +48,7 @@ export default function JobCard({ job, hasApplied, onApply, isApplying }: JobCar
       <CardContent className="p-6">
         <div className="flex items-start justify-between mb-4">
           <div className="flex items-center space-x-3">
-            <div className="w-12 h-12 bg-blue-600 rounded flex items-center justify-center">
+            <div className="w-12 h-12 rounded flex items-center justify-center" style={{backgroundColor: '#aa003e'}}>
               <span className="text-white font-bold">
                 {job.company.charAt(0)}
               </span>
@@ -135,7 +135,10 @@ export default function JobCard({ job, hasApplied, onApply, isApplying }: JobCar
           ) : (
             <Dialog open={isApplicationOpen} onOpenChange={setIsApplicationOpen}>
               <DialogTrigger asChild>
-                <Button size="sm" className="bg-blue-600 hover:bg-blue-700 text-white">
+                <Button size="sm" className="text-white"
+                  style={{backgroundColor: '#aa003e'}}
+                  onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#880032'}
+                  onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#aa003e'}>
                   Apply Now
                 </Button>
               </DialogTrigger>
@@ -172,7 +175,10 @@ export default function JobCard({ job, hasApplied, onApply, isApplying }: JobCar
                     <Button 
                       onClick={handleApply}
                       disabled={isApplying}
-                      className="bg-blue-600 hover:bg-blue-700 text-white"
+                      className="text-white"
+                      style={{backgroundColor: '#aa003e'}}
+                      onMouseEnter={(e) => (e.target as HTMLElement).style.backgroundColor = '#880032'}
+                      onMouseLeave={(e) => (e.target as HTMLElement).style.backgroundColor = '#aa003e'}
                     >
                       {isApplying ? 'Submitting...' : 'Submit Application'}
                     </Button>

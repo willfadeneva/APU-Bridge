@@ -86,19 +86,19 @@ export default function CreatePost() {
               <>
                 <div className="mt-4 space-y-3">
                   <div className="flex flex-wrap items-center gap-2">
-                    <Button variant="ghost" size="sm" className="text-gray-600 hover:text-blue-600 flex-shrink-0 text-xs lg:text-sm">
+                    <Button variant="ghost" size="sm" className="text-gray-600 hover:text-red-800 flex-shrink-0 text-xs lg:text-sm">
                       <Image className="h-3 w-3 lg:h-4 lg:w-4 mr-1" />
                       <span>Photo</span>
                     </Button>
-                    <Button variant="ghost" size="sm" className="text-gray-600 hover:text-blue-600 flex-shrink-0 text-xs lg:text-sm">
+                    <Button variant="ghost" size="sm" className="text-gray-600 hover:text-red-800 flex-shrink-0 text-xs lg:text-sm">
                       <Video className="h-3 w-3 lg:h-4 lg:w-4 mr-1" />
                       <span>Video</span>
                     </Button>
-                    <Button variant="ghost" size="sm" className="text-gray-600 hover:text-blue-600 flex-shrink-0 text-xs lg:text-sm">
+                    <Button variant="ghost" size="sm" className="text-gray-600 hover:text-red-800 flex-shrink-0 text-xs lg:text-sm">
                       <FileText className="h-3 w-3 lg:h-4 lg:w-4 mr-1" />
                       <span>Document</span>
                     </Button>
-                    <Button variant="ghost" size="sm" className="text-gray-600 hover:text-blue-600 flex-shrink-0 text-xs lg:text-sm">
+                    <Button variant="ghost" size="sm" className="text-gray-600 hover:text-red-800 flex-shrink-0 text-xs lg:text-sm">
                       <Link className="h-3 w-3 lg:h-4 lg:w-4 mr-1" />
                       <span>Link</span>
                     </Button>
@@ -120,7 +120,10 @@ export default function CreatePost() {
                       size="sm"
                       onClick={handleSubmit}
                       disabled={!content.trim() || createPostMutation.isPending}
-                      className="bg-blue-600 hover:bg-blue-700 text-white flex-shrink-0 text-xs lg:text-sm"
+                      className="text-white flex-shrink-0 text-xs lg:text-sm"
+                      style={{backgroundColor: '#aa003e'}}
+                      onMouseEnter={(e) => !e.currentTarget.disabled && ((e.target as HTMLElement).style.backgroundColor = '#880032')}
+                      onMouseLeave={(e) => !e.currentTarget.disabled && ((e.target as HTMLElement).style.backgroundColor = '#aa003e')}
                     >
                       {createPostMutation.isPending ? 'Posting...' : 'Post'}
                     </Button>

@@ -311,14 +311,14 @@ export default function Profile() {
               <h2 className="text-xl font-semibold text-gray-800 mb-6">Education</h2>
               
               <div className="flex">
-                <div className="w-12 h-12 bg-blue-600 rounded flex items-center justify-center mr-4">
+                <div className="w-12 h-12 rounded flex items-center justify-center mr-4" style={{backgroundColor: '#aa003e'}}>
                   <Building className="h-6 w-6 text-white" />
                 </div>
                 <div className="flex-1">
                   <h3 className="font-semibold text-gray-800">
                     {user.major ? `${user.major} - ${user.university}` : user.university}
                   </h3>
-                  <p className="text-blue-600 mb-1">{user.university}</p>
+                  <p className="mb-1" style={{color: '#aa003e'}}>{user.university}</p>
                   {user.graduationYear && (
                     <p className="text-sm text-gray-500 mb-2">
                       Expected Graduation: {user.graduationYear}
